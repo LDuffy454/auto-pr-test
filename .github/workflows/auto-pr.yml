@@ -14,16 +14,20 @@ jobs:
           cat notes.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Make Pretty Message
+      - name: Make Marketing Magic
         run: |
-          echo "## New Update! 🚀" > update.md
+          echo "# 🚀 Fresh Update Dropped!" > update.md
           echo "" >> update.md
-          cat notes.txt | sed 's/^/• /' >> update.md
+          echo "Hey friends! We just shipped some fresh updates:" >> update.md
           echo "" >> update.md
-          echo "Powered by Auto-PR 🤖" >> update.md
+          cat notes.txt | sed 's/^/✨ /' >> update.md
+          echo "" >> update.md
+          echo "Love it? [Try now](https://your-app.com) · Follow for more!" >> update.md
+          echo "" >> update.md
+          echo "_Auto-powered by **Auto-PR** 🤖_" >> update.md
 
       - name: Save File
         uses: actions/upload-artifact@v4
         with:
-          name: My Update
+          name: Sexy Update
           path: update.md
