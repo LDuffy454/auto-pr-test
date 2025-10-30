@@ -1,0 +1,29 @@
+name: Auto-PR Robot
+on: [push]
+jobs:
+  generate-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Read notes
+        id: read
+        run: |
+          echo "NOTES<<EOF" >> $GITHUB_OUTPUT
+          cat notes.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Make Pretty Message
+        run: |
+          echo "## New Update! 🚀" > update.md
+          echo "" >> update.md
+          cat notes.txt | sed 's/^/• /' >> update.md
+          echo "" >> update.md
+          echo "Powered by Auto-PR 🤖" >> update.md
+
+      - name: Save File
+        uses: actions/upload-artifact@v4
+        with:
+          name: My Update
+          path: update.md
