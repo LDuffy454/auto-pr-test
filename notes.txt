@@ -3,3 +3,4 @@ Fix login crash
 Make loading 2x faster
 Add search bar
 Add emoji reactions
+Add user profiles
