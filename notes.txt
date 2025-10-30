@@ -1,3 +1,4 @@
 Add dark mode
 Fix login crash
 Make loading 2x faster
+Add search bar
