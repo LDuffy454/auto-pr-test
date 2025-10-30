@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "# 🚀 Fresh Update Dropped!" > update.md
           echo "" >> update.md
-          echo "Hey friends! We just shipped some fresh updates:" >> update.md
+          echo "Hey friends! We just shipped some goodies:" >> update.md
           echo "" >> update.md
           cat notes.txt | sed 's/^/✨ /' >> update.md
           echo "" >> update.md
@@ -27,7 +27,7 @@ jobs:
           echo "_Auto-powered by **Auto-PR** 🤖_" >> update.md
 
       - name: Save File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Sexy Update
           path: update.md
